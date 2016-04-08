@@ -7,26 +7,57 @@ import org.gk_software.training.task.model.Item;
 
 public interface POS {
 
-	public int getCurrentMoneyAmount(); // shows all money held in POS
+	/**
+	 * Shows all money held in POS
+	 * 
+	 * @return Integer money of this POS
+	 */
+	public int getCurrentMoneyAmount();
 
-	public List<Item> getListOfAvailbaleSaleItems(); // Shows all items can be
-														// sold.
+	/**
+	 * Shows all items can be sold.
+	 * 
+	 * @return List of items
+	 */
+	public List<Item> getListOfAvailbaleSaleItems();
 
-	public void sellItem(Item item); // take item away, receive some money
-										// (depending on item price)
+	/**
+	 * take item away, receive some money (depending on item price)
+	 * 
+	 * @param item
+	 *            - which will be sold
+	 */
+	public void sellItem(Item item);
 
-	public void returnSoldItem(Item item); // take item back, give away some
-											// money (depending on item price)
+	/**
+	 * take item back, give away some money (depending on item price)
+	 * 
+	 * @param item
+	 *            - which will be returned
+	 */
+	public void returnSoldItem(Item item);
 
-	public void encashment(); // Take away all money from POS, leaving minimal
-								// amount for change
+	/**
+	 * Take away all money from POS, leaving minimal amount for change
+	 */
+	public void encashment();
 
-	public void storeItems(List<Item> items); // Receive a list of goods, and
-												// store them for further
-												// selling
+	/**
+	 * Receive a list of goods, and store them for further selling
+	 * 
+	 * @param items
+	 */
+	public void storeItems(List<Item> items);
 
-	public String report(Timestamp from, Timestamp to); // Give information of
-														// sold items, revenue,
-														// encashment.
-
+	/**
+	 * Give information of sold items, revenue, encashment.
+	 * 
+	 * @param from
+	 *            - timestamp start date;
+	 * @param to
+	 *            - timestamp end date;
+	 * @return String report
+	 */
+	public String report(Timestamp from, Timestamp to);
+	
 }
